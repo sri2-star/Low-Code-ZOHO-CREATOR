@@ -1,0 +1,3068 @@
+/*
+ * Author       : srinithikannan23012007
+ * Generated on : 25-Oct-2026 19:52:33
+ * Version      : 1.0
+ */
+ application "Student Academic Task Manager"
+ {
+ 	date format = "dd-MMM-yyyy"
+ 	time zone = "America/Los_Angeles"
+ 	time format = "24-hr"
+
+ 	forms
+	{
+		form Attendence
+		{
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Name
+			(
+    			type = name
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form student_profile
+		{
+			displayname = "Student Profile"
+			success message = "Student Profile Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			student_name
+			(
+    			type = name
+				displayname = "Student Name"
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+	     			 visibility = false
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			student_code
+			(
+    			type = text
+				displayname = "Student Code"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			email
+			(
+    			type = email
+				displayname = "Email Address"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			phone_number
+			(
+    			type = phonenumber
+				displayname = "Phone Number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			enrollment_date
+			(
+    			type = date
+				displayname = "Enrollment Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			current_semester
+			(
+				type = number
+				displayname = "Current Semester"
+				maxchar = 19
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			major
+			(
+    			type = text
+				displayname = "Major"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			gpa
+			(
+				type = decimal
+				displayname = "GPA"
+				maxchar = 16
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			role
+			(
+				type = radiobuttons
+				displayname = "Role"
+				values = {"Administrator","Student"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			status
+			(
+				type = picklist
+				displayname = "Status"
+				values = {"Active","Inactive","Graduated"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+			blueprint components
+			{
+				stages = {"Student Draft","Submitted","Active"}
+			}
+		}
+		form subject1
+		{
+			displayname = "Subject"
+			success message = "Subject Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			subject_code
+			(
+    			type = text
+				displayname = "Subject Code"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			subject_name
+			(
+    			type = text
+				displayname = "Subject Name"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			credits
+			(
+				type = number
+				displayname = "Credits"
+				maxchar = 19
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			semester
+			(
+				type = number
+				displayname = "Semester"
+				maxchar = 19
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			instructor
+			(
+    			type = name
+				displayname = "Instructor Name"
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+	     			 visibility = false
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			room_number
+			(
+    			type = text
+				displayname = "Room Number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			schedule
+			(
+    			type = text
+				displayname = "Schedule"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			description
+			(
+    			type = textarea
+				displayname = "Description"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			status
+			(
+				type = radiobuttons
+				displayname = "Status"
+				values = {"Active","Inactive"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+			blueprint components
+			{
+				stages = {"Stage1","Stage2","Stage3"}
+			}
+		}
+		form task
+		{
+			displayname = "Task"
+			success message = "Task Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			task_title
+			(
+    			type = text
+				displayname = "Task Title"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			task_code
+			(
+    			type = text
+				displayname = "Task Code"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			description
+			(
+    			type = textarea
+				displayname = "Description"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			due_date
+			(
+    			type = date
+				displayname = "Due Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			priority
+			(
+				type = picklist
+				displayname = "Priority"
+				values = {"High","Low","Medium","Critical"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			estimated_hours
+			(
+				type = number
+				displayname = "Estimated Hours"
+				maxchar = 19
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			actual_hours
+			(
+				type = number
+				displayname = "Actual Hours"
+				maxchar = 19
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			file_url
+			(
+    			type = url
+				displayname = "File URL"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			status
+			(
+				type = picklist
+				displayname = "Status"
+				values = {"Completed","In Progress","Overdue","Pending"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			created_by
+			(
+    			type = text
+				displayname = "Created By"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+			blueprint components
+			{
+				stages = {"Task Created","Task Pending Review","Task Draft","Task Cancelled","Task Approved","Task Rejected","Task In Progress","Task On Hold","Task Completed","Task Closed","start"}
+			}
+		}
+		form task_progress
+		{
+			displayname = "Task Progress"
+			success message = "Task Progress Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			progress_title
+			(
+    			type = text
+				displayname = "Progress Title"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			progress_code
+			(
+    			type = text
+				displayname = "Progress Code"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			task
+			(
+				type = list	
+				displayname = "Task"
+				values  = task.ID
+    			displayformat = [task_code]
+				allow new entries
+				[
+					displayname = "Add New"
+				]
+				sortorder = ascending
+				height = 13px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			progress_date
+			(
+    			type = date
+				displayname = "Progress Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			update_description
+			(
+    			type = textarea
+				displayname = "Update Description"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			hours_spent
+			(
+				type = number
+				displayname = "Hours Spent"
+				maxchar = 19
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			completion_percentage
+			(
+    			type = percentage
+				displayname = "Completion Percentage"
+				maxchar = 16
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			next_milestone
+			(
+    			type = text
+				displayname = "Next Milestone"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			attachments
+			(
+    			type = textarea
+				displayname = "Attachments"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+			blueprint components
+			{
+				stages = {"Stage1","Stage2","Stage3"}
+			}
+		}
+		form task_subject
+		{
+			displayname = "Task Subject"
+			success message = "Task Subject Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			task
+			(
+				type = list	
+				displayname = "Task"
+				values  = task.ID
+    			displayformat = [task_code]
+				allow new entries
+				[
+					displayname = "Add New"
+				]
+				sortorder = ascending
+				height = 13px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			subject_1
+			(
+				type = list	
+				displayname = "Subject"
+				values  = subject1.ID
+    			displayformat = [subject_code]
+				allow new entries
+				[
+					displayname = "Add New"
+				]
+				sortorder = ascending
+				height = 13px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			assignment_type
+			(
+				type = picklist
+				displayname = "Assignment Type"
+				values = {"Project","Quiz","Lab","Exam","Homework"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			weightage
+			(
+    			type = percentage
+				displayname = "Weightage"
+				maxchar = 16
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+			blueprint components
+			{
+				stages = {"Assignment Created","Assignment Pending Review","Assignment Draft","Assignment Approved","Assignment Rejected","Assignment Active","Assignment Completed","Assignment On Hold","Assignment Cancelled","Assignment Archived"}
+			}
+		}
+	}
+	reports
+	{
+		list task_subject_Report
+		{
+			displayName = "All Task Subjects"
+			show all rows from task_subject    
+			(
+				task as "Task"
+				subject_1 as "Subject"
+				assignment_type as "Assignment Type"
+				weightage as "Weightage"
+				(
+					display = total,average,min,max	
+				)
+			)
+			conditional formatting
+			(
+				"New Formatting1"
+				{
+				condition = (assignment_type == "Homework")
+				fields = [assignment_type]
+				format = "color:#ffffff;background-color:#765f89;"
+				}
+				"New Formatting2"
+				{
+				condition = (assignment_type == "Lab")
+				fields = [assignment_type]
+				format = "color:#000000;background-color:#1bbc9b;"
+				}
+				"New Formatting3"
+				{
+				condition = (assignment_type == "Project")
+				fields = [assignment_type]
+				format = "color:#ffffff;background-color:#e84c3d;"
+				}
+			)
+		}
+		kanban task_subject_by_assignment_type
+		{
+			displayName = "Assignment Types"
+			show all rows from task_subject    
+			(
+				task as "Task"
+				subject_1 as "Subject"
+				(
+					view = subject1_Report
+					delimiter = comma
+				)
+				assignment_type as "Assignment Type"
+				weightage as "Weightage"
+				(
+					display = total,average,min,max	
+				)
+			)
+			options
+			(
+	 			display field = assignment_type
+				filter type  = manual
+				sort order  = ascending
+				record count  = enable
+	 		)
+		}
+		list task_progress_Report
+		{
+			displayName = "All Task Progress"
+			show all rows from task_progress    
+			(
+				progress_title as "Progress Title"
+				progress_code as "Progress Code"
+				task as "Task"
+				progress_date as "Progress Date"
+				update_description as "Update Description"
+				hours_spent as "Hours Spent"
+				completion_percentage as "Completion Percentage"
+				(
+					display = total,average,min,max	
+				)
+				next_milestone as "Next Milestone"
+				attachments as "Attachments"
+			)
+		}
+		list task_Report
+		{
+			displayName = "All Tasks"
+			show all rows from task    
+			(
+				task_title as "Task Title"
+				task_code as "Task Code"
+				description as "Description"
+				due_date as "Due Date"
+				priority as "Priority"
+				estimated_hours as "Estimated Hours"
+				actual_hours as "Actual Hours"
+				file_url as "File URL"
+				status as "Status"
+				created_by as "Created By"
+			)
+			conditional formatting
+			(
+				"New Formatting1"
+				{
+				condition = (priority == "Critical")
+				fields = [priority]
+				format = "color:#ffffff;background-color:#765f89;"
+				}
+				"New Formatting2"
+				{
+				condition = (priority == "Low")
+				fields = [priority]
+				format = "color:#000000;background-color:#1bbc9b;"
+				}
+				"New Formatting3"
+				{
+				condition = (priority == "Medium")
+				fields = [priority]
+				format = "color:#ffffff;background-color:#e84c3d;"
+				}
+			)
+		}
+		kanban task_by_priority
+		{
+			displayName = "Priorities"
+			show all rows from task    
+			(
+				task_title as "Task Title"
+				task_code as "Task Code"
+				description as "Description"
+				due_date as "Due Date"
+				priority as "Priority"
+				estimated_hours as "Estimated Hours"
+				actual_hours as "Actual Hours"
+				file_url as "File URL"
+				status as "Status"
+				created_by as "Created By"
+			)
+			options
+			(
+	 			display field = priority
+	 		)
+		}
+		list subject1_Report
+		{
+			displayName = "All Subjects"
+			show all rows from subject1    
+			(
+				subject_code as "Subject Code"
+				subject_name as "Subject Name"
+				credits as "Credits"
+				semester as "Semester"
+				instructor  as "Instructor Name"
+				room_number as "Room Number"
+				schedule as "Schedule"
+				description as "Description"
+				status as "Status"
+			)
+		}
+		list student_profile_Report
+		{
+			displayName = "All Student Profiles"
+			show all rows from student_profile    
+			(
+				student_name  as "Student Name"
+				student_code as "Student Code"
+				email as "Email Address"
+				phone_number as "Phone Number"
+				enrollment_date as "Enrollment Date"
+				current_semester as "Current Semester"
+				major as "Major"
+				gpa as "GPA"
+				role as "Role"
+				status as "Status"
+			)
+			conditional formatting
+			(
+				"New Formatting1"
+				{
+				condition = (status == "Active")
+				fields = [status]
+				format = "color:#ffffff;background-color:#765f89;"
+				}
+				"New Formatting2"
+				{
+				condition = (status == "Graduated")
+				fields = [status]
+				format = "color:#000000;background-color:#1bbc9b;"
+				}
+				"New Formatting3"
+				{
+				condition = (status == "Inactive")
+				fields = [status]
+				format = "color:#ffffff;background-color:#e84c3d;"
+				}
+			)
+		}
+		kanban student_profile_by_status
+		{
+			displayName = "Statuses"
+			show all rows from student_profile    
+			(
+				student_name  as "Student Name"
+				student_code as "Student Code"
+				email as "Email Address"
+				phone_number as "Phone Number"
+				enrollment_date as "Enrollment Date"
+				current_semester as "Current Semester"
+				major as "Major"
+				gpa as "GPA"
+				role as "Role"
+				status as "Status"
+			)
+			options
+			(
+	 			display field = status
+				sort order  = ascending
+	 		)
+		}
+		default list Attendence_Report
+		{
+			displayName = "Attendence Report"
+			show all rows from Attendence    
+			(
+				Name 
+			)
+		}
+		list All_Tasks
+		{
+			displayName = "All Tasks"
+			show all rows from task  [status == "Completed"]  
+			(
+				task_title as "Task Title"
+				task_code as "Task Code"
+				description as "Description"
+				due_date as "Due Date"
+				priority as "Priority"
+				estimated_hours as "Estimated Hours"
+				actual_hours as "Actual Hours"
+				file_url as "File URL"
+				status as "Status"
+				created_by as "Created By"
+			)
+		}
+		list Pending_Tasks
+		{
+			displayName = "Pending Tasks"
+			show all rows from task  [status == "Pending"]  
+			(
+				task_title as "Task Title"
+				task_code as "Task Code"
+				description as "Description"
+				due_date as "Due Date"
+				priority as "Priority"
+				estimated_hours as "Estimated Hours"
+				actual_hours as "Actual Hours"
+				file_url as "File URL"
+				status as "Status"
+				created_by as "Created By"
+			)
+			conditional formatting
+			(
+				"new"
+				{
+				fields = [task_title]
+				format = "color:#333;"
+				}
+			)
+		}
+	}
+	pages
+	{
+		page DashBoard
+		{
+			displayname = "Dashboard"
+			Content="<zml    \t\t\n\t\t\n\t\t\n\t\t\twebDeviceConfig='{\"layout\":{\"displayType\":\"plain\",\"design\":\"fluid\",\"style\":\"padding-right:0px;padding-top:0px;padding-bottom:0px;padding-left:0px;\"}}'\n\t\t\n\t\t\n>\n\t<layout>\n\t<row>\n\t<column\n   \t\t width='28%'\n   \t>\n\t<panel elementName='Panel 1'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\tvAlign = 'middle'\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginRight = '7px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = '#FFFFFF'\n\tbgColor = 'theme'\n\twidth = '50px'\n\theight = '50px'\n\ttype = 'icon'\n\tvalue = 'business-percentage-39'\n\tsize = '16px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = 'theme'\n\tsize = '20px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '2px'\n\n\n\tdisplayType = 'actual'\n\tdecimalPlaces = '2'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n    borderColor = '#5051F9'\n    borderWidth = '0px'\n\n\t  value = 'thisapp.task_subject.weightage.avg'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '0px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '3px'\n\tcolor = '#44404C'\n\tsize = '15px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\n\n\n\n\t  value = 'Average of Weightage'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column><column\n   \t\t width='25%'\n   \t>\n\t<panel elementName='Panel 2'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\tvAlign = 'middle'\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginRight = '7px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = '#FFFFFF'\n\tbgColor = 'theme'\n\twidth = '50px'\n\theight = '50px'\n\ttype = 'icon'\n\tvalue = 'business-percentage-38'\n\tsize = '16px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = 'theme'\n\tsize = '20px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '2px'\n\n\n\tdisplayType = 'actual'\n\tdecimalPlaces = '2'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n    borderColor = '#5051F9'\n    borderWidth = '0px'\n\n\t  value = 'thisapp.task_progress.completion_percentage.avg'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '0px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '3px'\n\tcolor = '#44404C'\n\tsize = '15px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\n\n\n\n\t  value = 'Average Completion Percentages'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column><column\n   \t\t width='24%'\n   \t>\n\t<panel elementName='Panel 3'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\tvAlign = 'middle'\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginRight = '7px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = '#FFFFFF'\n\tbgColor = 'theme'\n\twidth = '50px'\n\theight = '50px'\n\ttype = 'icon'\n\tvalue = 'weather-drops'\n\tsize = '16px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = 'theme'\n\tsize = '20px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '2px'\n\n\n\tdisplayType = 'actual'\n\tdecimalPlaces = '2'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n    borderColor = '#5051F9'\n    borderWidth = '0px'\n\n\t  value = 'thisapp.student_profile.gpa.avg'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '0px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '3px'\n\tcolor = '#44404C'\n\tsize = '15px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\n\n\n\n\t  value = 'Average of GPA'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column><column\n   \t\t width='23%'\n   \t>\n\t<panel elementName='Panel 4'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\tvAlign = 'middle'\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginRight = '7px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = '#FFFFFF'\n\tbgColor = 'theme'\n\twidth = '50px'\n\theight = '50px'\n\ttype = 'icon'\n\tvalue = 'travel-world'\n\tsize = '16px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = 'theme'\n\tsize = '20px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '2px'\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n    borderColor = '#5051F9'\n    borderWidth = '0px'\n\n\t  value = 'thisapp.task_subject.ID.count'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '0px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '3px'\n\tcolor = '#44404C'\n\tsize = '15px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\n\n\n\n\t  value = 'Total Task Subjects'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='29%'\n   \t>\n\t<chart \n\telementName='Chart 1'\n\n\t\n\ttitle = 'Actual Hours by Estimated Hours'\n\t\n\t\ttitleColor = '#222326'\n\ttype = 'Scatter'\n\txtitle = 'Actual Hours'\n\tytitle = 'Estimated Hours'\n\tbgColor = '#FFFFFF'\n\ttheme = 'theme'\n\tlegendPos = 'none'\n\theightType = 'auto'\n\theightValue = '300px'\n\tappLinkName = 'thisapp'\n\tformLinkName = 'task'\n\txfield = 'actual_hours'\n\tyfields = 'value:estimated_hours'\n\tgroupBy = 'task_title'\n\t\tDelugeCriteria = 'actual_hours is not null'\n/>\n\n</column><column\n   \t\t width='27%'\n   \t>\n\t<chart \n\telementName='Chart'\n\n\ttype = 'Column'\n\txtitle = 'Subject Code'\n\tytitle = 'Credits'\n\tbgColor = '#FFFFFF'\n\ttheme = 'theme1'\n\tlegendPos = 'center.top'\n\theightType = 'auto'\n\theightValue = '300px'\n\tappLinkName = 'thisapp'\n\tformLinkName = 'subject1'\n\txfield = 'subject_code'\n\tyfields = 'sum:credits'\n\tyAxisInterval = '50'\n/>\n\n</column><column\n   \t\t width='26%'\n   \t>\n\t<panel elementName='Grouped_Panel 1'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='50px'\n>\n\t<pc \n\t\tpadding = '0px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '20px'\n\tmarginRight = '20px' \n\tcolor = '#000000'\n\tsize = '16px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Status'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '17px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n    borderColor = '#444444'\n    borderWidth = '0px'\n\t\twidth = '50%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n    \tcornerRadius = '2px'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\tvAlign = 'middle'\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginRight = '7px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = 'theme'\n\tbgColor = '#F1F2F4'\n\twidth = '50px'\n\theight = '50px'\n\ttype = 'icon'\n\tvalue = 'design-todo'\n\tsize = '16px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tcolor = 'theme'\n\tsize = '20px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t\tcriteria = 'status == &quot;Completed&quot;'\n\t  value = 'thisapp.task.status.count'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '0px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '3px'\n\tcolor = '#44404C'\n\tsize = '15px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\n\n\n\n\t  value = 'Completed'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc><pc \n\t\tpaddingTop = '17px'\n\tpaddingLeft = '0px'\n\tpaddingRight = '17px'\n\tpaddingBottom = '17px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\twidth = '50%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\tvAlign = 'middle'\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginRight = '7px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = 'theme'\n\tbgColor = '#F1F2F4'\n\twidth = '50px'\n\theight = '50px'\n\ttype = 'icon'\n\tvalue = 'loader-refresh'\n\tsize = '16px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tcolor = 'theme'\n\tsize = '20px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t\tcriteria = 'status == &quot;In Progress&quot;'\n\t  value = 'thisapp.task.status.count'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '0px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '3px'\n\tcolor = '#44404C'\n\tsize = '15px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\n\n\n\n\t  value = 'In Progress'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '17px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n    borderColor = '#444444'\n    borderWidth = '0px'\n\t\twidth = '50%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n    \tcornerRadius = '2px'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\tvAlign = 'middle'\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginRight = '7px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = 'theme'\n\tbgColor = '#F1F2F4'\n\twidth = '50px'\n\theight = '50px'\n\ttype = 'icon'\n\tvalue = 'shopping-receipt'\n\tsize = '16px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tcolor = 'theme'\n\tsize = '20px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t\tcriteria = 'status == &quot;Overdue&quot;'\n\t  value = 'thisapp.task.status.count'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '0px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '3px'\n\tcolor = '#44404C'\n\tsize = '15px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\n\n\n\n\t  value = 'Overdue'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc><pc \n\t\tpaddingTop = '17px'\n\tpaddingLeft = '0px'\n\tpaddingRight = '17px'\n\tpaddingBottom = '17px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\twidth = '50%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\tvAlign = 'middle'\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginRight = '7px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = 'theme'\n\tbgColor = '#F1F2F4'\n\twidth = '50px'\n\theight = '50px'\n\ttype = 'icon'\n\tvalue = 'ui-2-hourglass'\n\tsize = '16px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tcolor = 'theme'\n\tsize = '20px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t\tcriteria = 'status == &quot;Pending&quot;'\n\t  value = 'thisapp.task.status.count'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '0px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '3px'\n\tcolor = '#44404C'\n\tsize = '15px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\n\n\n\n\t  value = 'Pending'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column><column\n   \t\t width='18%'\n   \t>\n\t<panel elementName='Panel_Button 1'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='50px'\n>\n\t<pc \n\t\tpadding = '0px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '20px'\n\tmarginRight = '20px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\tcolor = '#2D2D2D'\n\tsize = '16px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\n\n\n\n\t  value = 'Quick Links'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpaddingTop = '0px'\n\tpaddingLeft = '10px'\n\tpaddingRight = '10px'\n\tpaddingBottom = '10px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginLeft = '5px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = 'theme'\n\tbgColor = '#F1F2F4'\n\twidth = '40px'\n\theight = '40px'\n\ttype = 'icon'\n\tvalue = 'ui-2-square-add-08'\n\tsize = '16px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n\t\thAlign = 'left'\n>\n\t<text \n    action = 'OpenForm'\n\t\tcomponentLinkName = 'task_subject'\n\t\ttarget = 'new-window'\n\n\tmarginLeft = '12px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\tpadding = '0px'\n\tcolor = 'theme'\n\tsize = '15px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '2px'\n\n\n\n\n\n    borderColor = '#5051F9'\n    borderWidth = '0px'\n\n\t  value = 'Add New Task Subject'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\tpadding = '8px'\n\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t\n</pc>\n</pr>\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginLeft = '5px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = 'theme'\n\tbgColor = '#F1F2F4'\n\twidth = '40px'\n\theight = '40px'\n\ttype = 'icon'\n\tvalue = 'ui-2-square-add-08'\n\tsize = '16px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n\t\thAlign = 'left'\n>\n\t<text \n    action = 'OpenForm'\n\t\tcomponentLinkName = 'task_progress'\n\t\ttarget = 'new-window'\n\n\tmarginLeft = '12px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\tpadding = '0px'\n\tcolor = 'theme'\n\tsize = '15px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '2px'\n\n\n\n\n\n    borderColor = '#5051F9'\n    borderWidth = '0px'\n\n\t  value = 'Add New Task Progress'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\tpadding = '8px'\n\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t\n</pc>\n</pr>\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginLeft = '5px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = 'theme'\n\tbgColor = '#F1F2F4'\n\twidth = '40px'\n\theight = '40px'\n\ttype = 'icon'\n\tvalue = 'ui-2-square-add-08'\n\tsize = '16px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n\t\thAlign = 'left'\n>\n\t<text \n    action = 'OpenForm'\n\t\tcomponentLinkName = 'task'\n\t\ttarget = 'new-window'\n\n\tmarginLeft = '12px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\tpadding = '0px'\n\tcolor = 'theme'\n\tsize = '15px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '2px'\n\n\n\n\n\n    borderColor = '#5051F9'\n    borderWidth = '0px'\n\n\t  value = 'Add New Task'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\tpadding = '8px'\n\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t\n</pc>\n</pr>\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginLeft = '5px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = 'theme'\n\tbgColor = '#F1F2F4'\n\twidth = '40px'\n\theight = '40px'\n\ttype = 'icon'\n\tvalue = 'ui-2-square-add-08'\n\tsize = '16px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n\t\thAlign = 'left'\n>\n\t<text \n    action = 'OpenForm'\n\t\tcomponentLinkName = 'subject1'\n\t\ttarget = 'new-window'\n\n\tmarginLeft = '12px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\tpadding = '0px'\n\tcolor = 'theme'\n\tsize = '15px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '2px'\n\n\n\n\n\n    borderColor = '#5051F9'\n    borderWidth = '0px'\n\n\t  value = 'Add New Subject'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<chart \n\telementName='Chart 2'\n\n\t\n\ttitle = 'Status by Actual Hours'\n\t\n\t\ttitleColor = '#222326'\n\ttype = 'Bar'\n\txtitle = 'Status'\n\tytitle = 'Actual Hours'\n\tbgColor = '#FFFFFF'\n\ttheme = 'theme'\n\tlegendPos = 'none'\n\theightType = 'auto'\n\theightValue = '300px'\n\tappLinkName = 'thisapp'\n\tformLinkName = 'task'\n\txfield = 'status'\n\tyfields = 'sum:actual_hours'\n\tgroupBy = 'task_title'\n\t\tDelugeCriteria = 'status is not null &amp;&amp; status != &quot;&quot;'\n/>\n\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<report \n\telementName='Report'\n\n\t\tappLinkName = 'thisapp'\n\t\tlinkName = 'task_subject_Report'\n\t\n\t\tiszreport = 'false'\n\theightType = 'auto'\n\theightValue = '700'\n/>\n</column>\n</row>\n</layout>\n</zml>"
+		}
+	}
+
+
+
+
+		workflow
+		{
+		form
+		{
+			notify_high_priority_task as "Notify Student on High Priority Task"
+			{
+				type =  form
+				form = task
+
+				record event = on add
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// Check if the task priority is High
+										if(input.priority == "High")
+										{
+											// Send push notification to the logged-in user
+											// Required parameters: emailID, title, message, reportLinkName, recordID
+											zoho.pushNotification(zoho.loginuserid,"High Priority Task Created","A new high priority task has been created: " + input.task_title,"task",input.ID);
+										}
+						)
+					}
+				}
+
+			}
+			validate_task_hours as "Validate Task Hours Before Submission"
+			{
+				type =  form
+				form = task
+
+				record event = on add or edit
+
+				on validate
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// Validate estimated hours before allowing form submission
+										if(input.estimated_hours > 100)
+										{
+											alert(estimated_hours,"Estimated hours cannot exceed 100. Please adjust the value.");
+											cancel submit;
+										}
+						)
+					}
+				}
+
+			}
+			show_project_details as "Show Extra Details for Projects"
+			{
+				type =  form
+				form = task_subject
+
+				record event = on edit
+
+				on user input of assignment_type
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// Show assignment type field only when project is selected in assignment_type field
+										if(input.assignment_type == "Project")
+										{
+											show assignment_type;
+										}
+										else
+										{
+											hide assignment_type;
+										}
+						)
+					}
+				}
+
+			}
+			Student_Profile as "Student Profile"
+			{
+				type =  form
+				form = student_profile
+
+				record event = on add or edit
+
+				on success
+				{
+					actions 
+					{
+						sendmail
+						(
+							from : "zoho.adminuserid"
+							to : "srinithikannan23012007@gmail.com"
+							subject : "Record Added or Updated${zoho.adminuserid}${status}"
+							message : "<div>${zoho.loginuserid} has added or updated a record in form Student Profile<br></div>"
+						)
+					}
+				}
+
+			}
+		}
+
+		schedule
+		{
+			auto_set_task_status as "Auto-set Task Status on Due Date"
+			{
+				type =  schedule
+				form = task
+					status = inactive
+				start = due_date at "10:00:00"
+				time zone = "Asia/Kolkata"
+				on start
+				{
+					actions 
+					{
+					on load
+					(
+						// Fetch the current task record from input context
+										if(input.due_date.isNull() || input.status == "Completed")
+										{
+											// Skip if no due date or already completed
+											info "Task does not require overdue update";
+										}
+										else
+										{
+											// Get current date
+											currentDate = today;
+											// Check if due date has passed
+											if(input.due_date < currentDate)
+											{
+												// Update task status to Overdue
+												input.status = "Overdue";
+												// Send notification email
+												sendmail
+												[
+													from :zoho.loginuserid
+													to :input.created_by
+													subject :"Task Overdue Notification"
+													message :"<p>Dear User,</p><p>The task <strong>" + input.task_title + "</strong> is now marked as Overdue as the due date <strong>" + input.due_date.toString() + "</strong> has passed.</p><p>Please complete the task at the earliest.</p>"
+												]
+											}
+										}
+					)
+					}
+				}
+			}
+		}
+
+
+		blueprint
+		{
+    			Student_Profile as "Student Profile"
+    			{
+        			type = Blueprint
+        			form = student_profile
+        			start
+        			{
+            			start stage = "Student Draft"
+            			chart data
+            			{
+                			from port : B
+                			to port   : T3
+                			position  : "0 0"
+                			path      : [27.849999999999994,36.84,27.849999999999994,46.84,27.849999999999994,48.42,48.72047576904296,48.42,48.72047576904296,50,48.72047576904296,60]
+            			}
+        			}
+        			stages
+        			{
+           			"Student Draft"
+           			{
+               			chart data
+               			{
+                   			position : "-15.223052470852995 60"
+               			}
+           			}
+           			"Submitted"
+           			{
+               			chart data
+               			{
+                   			position : "-25 128.88126954346467"
+               			}
+           			}
+           			"Active"
+           			{
+               			chart data
+               			{
+                   			position : "-38 201.88126954346464"
+               			}
+           			}
+        			}
+        			transitions
+        			{
+    				submit as "submit"
+    				{
+         				type = normal
+         				from stage = "Student Draft"
+         				to stage = "Submitted"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : B3
+             				to port   : T4
+             				path      : [48.72047576904296,111.60782979522162,48.72047576904296,121.60782979522162,45.924600135597956,121.60782979522162,45.924600135597956,118.88126954346467,43.12872450215294,118.88126954346467,43.12872450215294,128.88126954346467]
+        				}
+  				}
+    				Verified as "Verified"
+    				{
+         				type = normal
+         				from stage = "Submitted"
+         				to stage = "Active"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : B3
+             				to port   : T4
+             				path      : [28.47154337661471,180.4890993386863,28.47154337661471,190.4890993386863,28.47154337661471,191.18518444107548,14.44408298197066,191.18518444107548,14.44408298197066,191.88126954346464,14.44408298197066,201.88126954346464]
+        				}
+  				}
+        			}
+    			}
+    			task as "task"
+    			{
+        			type = Blueprint
+        			form = task_progress
+        			start
+        			{
+        			}
+        			stages
+        			{
+        			}
+        			transitions
+        			{
+        			}
+    			}
+    			Subject_workflow as "Subject"
+    			{
+        			type = Blueprint
+        			form = subject1
+        			start
+        			{
+        			}
+        			stages
+        			{
+        			}
+        			transitions
+        			{
+        			}
+    			}
+    			task as "task"
+    			{
+        			type = Blueprint
+        			form = task
+        			start
+        			{
+            			start stage = "start"
+            			chart data
+            			{
+                			from port : B
+                			to port   : T3
+                			position  : "0 0"
+                			path      : [27.849999999999994,36.84,27.849999999999994,46.84,27.849999999999994,50.92,31.849999999999998,50.92,31.849999999999998,55,31.849999999999998,65]
+            			}
+        			}
+        			stages
+        			{
+           			"Task Created"
+           			{
+               			chart data
+               			{
+                   			position : "113 62.88126954346467"
+               			}
+           			}
+           			"Task Pending Review"
+           			{
+               			chart data
+               			{
+                   			position : "340 306.88126954346467"
+               			}
+           			}
+           			"Task Draft"
+           			{
+               			chart data
+               			{
+                   			position : "325 145.88126954346467"
+               			}
+           			}
+           			"Task Cancelled"
+           			{
+               			chart data
+               			{
+                   			position : "389 461.88126954346467"
+               			}
+           			}
+           			"Task Approved"
+           			{
+               			chart data
+               			{
+                   			position : "30 405.52036888215093"
+               			}
+           			}
+           			"Task Rejected"
+           			{
+               			chart data
+               			{
+                   			position : "396 399.88126954346467"
+               			}
+           			}
+           			"Task In Progress"
+           			{
+               			chart data
+               			{
+                   			position : "314 76.88126954346467"
+               			}
+           			}
+           			"Task On Hold"
+           			{
+               			chart data
+               			{
+                   			position : "334 226.88126954346467"
+               			}
+           			}
+           			"Task Completed"
+           			{
+               			chart data
+               			{
+                   			position : "259 397.88126954346467"
+               			}
+           			}
+           			"start"
+           			{
+               			chart data
+               			{
+                   			position : "-4.331557719876432 65"
+               			}
+           			}
+        			}
+        			transitions
+        			{
+    				approved as "approved"
+    				{
+         				type = normal
+         				from stage = "Task Completed"
+         				to stage = "Task Approved"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : L1
+             				to port   : R1
+             				path      : [259,423.6851844410755,249,423.6851844410755,211.78955179946627,423.6851844410755,211.78955179946627,431.32428377976174,174.57910359893253,431.32428377976174,164.57910359893253,431.32428377976174]
+        				}
+  				}
+    				create as "create"
+    				{
+         				type = normal
+         				from stage = "start"
+         				to stage = "Task Created"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : R1
+             				to port   : L1
+             				path      : [68.03155771987643,90.80391489761081,78.03155771987643,90.80391489761081,90.51577885993822,90.80391489761081,90.51577885993822,88.68518444107548,103,88.68518444107548,113,88.68518444107548]
+        				}
+  				}
+    				end as "end"
+    				{
+         				type = normal
+         				from stage = "Task Rejected"
+         				to stage = "Task Cancelled"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : B3
+             				to port   : T3
+             				path      : [459.9785471607944,451.4890993386863,459.9785471607944,461.4890993386863,458.1165400196811,461.4890993386863,458.1165400196811,451.88126954346467,456.25453287856783,451.88126954346467,456.25453287856783,461.88126954346467]
+        				}
+  				}
+    				error as "error"
+    				{
+         				type = normal
+         				from stage = "Task Pending Review"
+         				to stage = "Task Rejected"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : B3
+             				to port   : T3
+             				path      : [426.084527080228,358.4890993386863,426.084527080228,368.4890993386863,426.084527080228,379.1851844410755,459.9785471607944,379.1851844410755,459.9785471607944,389.88126954346467,459.9785471607944,399.88126954346467]
+        				}
+  				}
+    				pending as "pending"
+    				{
+         				type = normal
+         				from stage = "Task Draft"
+         				to stage = "Task On Hold"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : B3
+             				to port   : T2
+             				path      : [378.31054789321627,197.4890993386863,378.31054789321627,207.4890993386863,378.31054789321627,212.18518444107548,379.37102830739155,212.18518444107548,379.37102830739155,216.88126954346467,379.37102830739155,226.88126954346467]
+        				}
+  				}
+    				review as "review"
+    				{
+         				type = normal
+         				from stage = "Task On Hold"
+         				to stage = "Task Pending Review"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : B3
+             				to port   : T2
+             				path      : [397.30654246108736,278.4890993386863,397.30654246108736,288.4890993386863,397.30654246108736,292.6851844410755,400.5563513868187,292.6851844410755,400.5563513868187,296.88126954346467,400.5563513868187,306.88126954346467]
+        				}
+  				}
+    				source as "source"
+    				{
+         				type = normal
+         				from stage = "Task In Progress"
+         				to stage = "Task Draft"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : B3
+             				to port   : T3
+             				path      : [385.19904429214205,128.4890993386863,385.19904429214205,138.4890993386863,381.75479609267916,138.4890993386863,381.75479609267916,135.88126954346467,378.31054789321627,135.88126954346467,378.31054789321627,145.88126954346467]
+        				}
+  				}
+    				start as "start"
+    				{
+         				type = normal
+         				from stage = "Task Created"
+         				to stage = "Task In Progress"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : R1
+             				to port   : L1
+             				path      : [236.28108418975285,88.68518444107548,246.28108418975285,88.68518444107548,275.1405420948764,88.68518444107548,275.1405420948764,102.68518444107548,304,102.68518444107548,314,102.68518444107548]
+        				}
+  				}
+    				verified as "verified"
+    				{
+         				type = normal
+         				from stage = "Task Pending Review"
+         				to stage = "Task Completed"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : B2
+             				to port   : T3
+             				path      : [400.5563513868187,358.4890993386863,400.5563513868187,368.4890993386863,400.5563513868187,378.1851844410755,329.98554331557955,378.1851844410755,329.98554331557955,387.88126954346467,329.98554331557955,397.88126954346467]
+        				}
+  				}
+        			}
+    			}
+		}
+
+
+	}
+	share_settings
+	{
+			"Read"
+			{
+				name = "Read"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have read permission for all components\n"
+			}
+			"Write"
+			{
+				name = "Write"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have write permission for all components\n"
+			}
+			"Administrator"
+			{
+				name = "Administrator"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have all the permissions.\n"
+			}
+			"Instructor"
+			{
+				name = "Instructor"
+				type = Users_Permissions
+				permissions = {Chat:false, Predefined:false, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Define subject details including schedules, room numbers, and descriptions \n"
+				ModulePermissions
+				{
+					task_progress
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							task_progress_Report={"View"}
+						}
+					}
+					task_subject
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							task_subject_by_assignment_type={"View","Edit","Delete"}
+							task_subject_Report={"View","Edit","Delete"}
+						}
+					}
+					task
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							task_by_priority={"View","Edit","Delete"}
+							task_Report={"View","Edit","Delete"}
+						}
+					}
+					student_profile
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							student_profile_by_status={"View"}
+							student_profile_Report={"View"}
+						}
+					}
+					subject1
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							subject1_Report={"View","Edit","Delete"}
+						}
+					}
+				}
+			}
+			"Developer"
+			{
+				name = "Developer"
+				type = Developer
+				permissions = {Chat:false, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Developer Profile\n"
+			}
+			"Student"
+			{
+				name = "Student"
+				type = Users_Permissions
+				permissions = {Chat:false, Predefined:false, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Create and manage personal academic tasks and upload related files \n"
+				ModulePermissions
+				{
+					task_progress
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							task_progress_Report={"View","Edit","Delete"}
+						}
+					}
+					task_subject
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							task_subject_by_assignment_type={"View"}
+							task_subject_Report={"View"}
+						}
+					}
+					task
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							task_by_priority={"View","Edit","Delete"}
+							task_Report={"View","Edit","Delete"}
+						}
+					}
+					student_profile
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							student_profile_by_status={"View","Edit","Delete"}
+							student_profile_Report={"View","Edit","Delete"}
+						}
+					}
+					subject1
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							subject1_Report={"View"}
+						}
+					}
+				}
+			}
+			"Parent"
+			{
+				name = "Parent"
+				type = Customer_Portal
+				permissions = {Chat:false, Predefined:false, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "View student academic progress and task completion status \n"
+				ModulePermissions
+				{
+					task_progress
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							task_progress_Report={"View"}
+						}
+					}
+					task_subject
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							task_subject_by_assignment_type={"View"}
+							task_subject_Report={"View"}
+						}
+					}
+					task
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							task_by_priority={"View"}
+							task_Report={"View"}
+						}
+					}
+					student_profile
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							student_profile_by_status={"View"}
+							student_profile_Report={"View"}
+						}
+					}
+					subject1
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							subject1_Report={"View"}
+						}
+					}
+				}
+			}
+			"Customer"
+			{
+				name = "Customer"
+				type = Customer_Portal
+				permissions = {Chat:false, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This is the default profile having only add and view permission.\n"
+			}
+			roles
+			{
+				"CEO"
+				{
+					description = "User belonging to this role can access data of all other users."
+				}
+			}
+	}
+
+	customize
+	{
+		icon
+		{
+			text = "STU"
+			background color = "theme"
+			foreground color = "#ffffff"
+		}
+	}
+
+	web
+	{
+		forms
+		{
+			form Attendence
+			{
+				label placement = left
+			}
+			form student_profile
+			{
+				label placement = left
+			}
+			form subject1
+			{
+				label placement = left
+			}
+			form task
+			{
+				label placement = left
+			}
+			form task_progress
+			{
+				label placement = left
+			}
+			form task_subject
+			{
+				label placement = left
+			}
+		}
+		reports
+		{
+			report task_subject_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								task as "Task"
+								subject_1 as "Subject"
+								assignment_type as "Assignment Type"
+								weightage as "Weightage"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								task as "Task"
+								subject_1 as "Subject"
+								assignment_type as "Assignment Type"
+								weightage as "Weightage"
+							)
+						)
+						datablock2
+						(
+		     				title = "Task"
+		     				related field = task
+							fields
+							(
+								task_title as "Task Title"
+								task_code as "Task Code"
+								description as "Description"
+								due_date as "Due Date"
+								priority as "Priority"
+								estimated_hours as "Estimated Hours"
+								actual_hours as "Actual Hours"
+								file_url as "File URL"
+								status as "Status"
+								created_by as "Created By"
+							)
+						)
+						datablock3
+						(
+		     				title = "Subject"
+		     				related field = subject_1
+							fields
+							(
+								subject_code as "Subject Code"
+								subject_name as "Subject Name"
+								credits as "Credits"
+								semester as "Semester"
+								instructor as "Instructor Name"
+								room_number as "Room Number"
+								schedule as "Schedule"
+								description as "Description"
+								status as "Status"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report task_subject_by_assignment_type
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = 2
+							fields
+							(
+								assignment_type as "Assignment Type"
+								subject_1 as "Subject"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								task as "Task"
+								subject_1 as "Subject"
+								assignment_type as "Assignment Type"
+								weightage as "Weightage"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report task_progress_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								progress_title as "Progress Title"
+								progress_code as "Progress Code"
+								task as "Task"
+								progress_date as "Progress Date"
+								update_description as "Update Description"
+								hours_spent as "Hours Spent"
+								completion_percentage as "Completion Percentage"
+								next_milestone as "Next Milestone"
+								attachments as "Attachments"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								progress_title as "Progress Title"
+								progress_code as "Progress Code"
+								task as "Task"
+								progress_date as "Progress Date"
+								update_description as "Update Description"
+								hours_spent as "Hours Spent"
+								completion_percentage as "Completion Percentage"
+								next_milestone as "Next Milestone"
+								attachments as "Attachments"
+							)
+						)
+						datablock2
+						(
+		     				title = "Task"
+		     				related field = task
+							fields
+							(
+								task_title as "Task Title"
+								task_code as "Task Code"
+								description as "Description"
+								due_date as "Due Date"
+								priority as "Priority"
+								estimated_hours as "Estimated Hours"
+								actual_hours as "Actual Hours"
+								file_url as "File URL"
+								status as "Status"
+								created_by as "Created By"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report task_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								task_title as "Task Title"
+								task_code as "Task Code"
+								description as "Description"
+								due_date as "Due Date"
+								priority as "Priority"
+								estimated_hours as "Estimated Hours"
+								actual_hours as "Actual Hours"
+								file_url as "File URL"
+								status as "Status"
+								created_by as "Created By"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								task_title as "Task Title"
+								task_code as "Task Code"
+								description as "Description"
+								due_date as "Due Date"
+								priority as "Priority"
+								estimated_hours as "Estimated Hours"
+								actual_hours as "Actual Hours"
+								file_url as "File URL"
+								status as "Status"
+								created_by as "Created By"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report task_by_priority
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = 1
+							fields
+							(
+								task_title as "Task Title"
+								task_code as "Task Code"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								task_title as "Task Title"
+								task_code as "Task Code"
+								description as "Description"
+								due_date as "Due Date"
+								priority as "Priority"
+								estimated_hours as "Estimated Hours"
+								actual_hours as "Actual Hours"
+								file_url as "File URL"
+								status as "Status"
+								created_by as "Created By"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report subject1_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								subject_code as "Subject Code"
+								subject_name as "Subject Name"
+								credits as "Credits"
+								semester as "Semester"
+								instructor as "Instructor Name"
+								room_number as "Room Number"
+								schedule as "Schedule"
+								description as "Description"
+								status as "Status"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								subject_code as "Subject Code"
+								subject_name as "Subject Name"
+								credits as "Credits"
+								semester as "Semester"
+								instructor as "Instructor Name"
+								room_number as "Room Number"
+								schedule as "Schedule"
+								description as "Description"
+								status as "Status"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report student_profile_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								student_name as "Student Name"
+								student_code as "Student Code"
+								email as "Email Address"
+								phone_number as "Phone Number"
+								enrollment_date as "Enrollment Date"
+								current_semester as "Current Semester"
+								major as "Major"
+								gpa as "GPA"
+								role as "Role"
+								status as "Status"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								student_name as "Student Name"
+								student_code as "Student Code"
+								email as "Email Address"
+								phone_number as "Phone Number"
+								enrollment_date as "Enrollment Date"
+								current_semester as "Current Semester"
+								major as "Major"
+								gpa as "GPA"
+								role as "Role"
+								status as "Status"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report student_profile_by_status
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = 1
+							fields
+							(
+								student_name as "Student Name"
+								student_code as "Student Code"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								student_name as "Student Name"
+								student_code as "Student Code"
+								email as "Email Address"
+								phone_number as "Phone Number"
+								enrollment_date as "Enrollment Date"
+								current_semester as "Current Semester"
+								major as "Major"
+								gpa as "GPA"
+								role as "Role"
+								status as "Status"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report Attendence_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Name
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Name
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Tasks
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = -4
+						datablock1
+						(
+							layout type = -4
+							fields
+							(
+								task_title as "Task Title"
+								task_code as "Task Code"
+								description as "Description"
+								due_date as "Due Date"
+								priority as "Priority"
+								estimated_hours as "Estimated Hours"
+								actual_hours as "Actual Hours"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								task_title as "Task Title"
+								task_code as "Task Code"
+								description as "Description"
+								due_date as "Due Date"
+								priority as "Priority"
+								estimated_hours as "Estimated Hours"
+								actual_hours as "Actual Hours"
+								file_url as "File URL"
+								status as "Status"
+								created_by as "Created By"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Pending_Tasks
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								task_title as "Task Title"
+								task_code as "Task Code"
+								description as "Description"
+								due_date as "Due Date"
+								priority as "Priority"
+								estimated_hours as "Estimated Hours"
+								actual_hours as "Actual Hours"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								task_title as "Task Title"
+								task_code as "Task Code"
+								description as "Description"
+								due_date as "Due Date"
+								priority as "Priority"
+								estimated_hours as "Estimated Hours"
+								actual_hours as "Actual Hours"
+								file_url as "File URL"
+								status as "Status"
+								created_by as "Created By"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+		}
+		menu
+		{
+			space Space
+			{
+				displayname = "Space"
+				icon = "objects-spaceship"
+
+				section Section_1
+				{
+					displayname = "Dashboard"
+					icon = "ui-1-dashboard-half"
+					page DashBoard
+					{
+						icon = "ui-1-dashboard-half"
+					}
+				}
+				section Section_2
+				{
+					displayname = "Task Subjects"
+					icon = "design-todo"
+					form  task_subject
+					{
+						icon = "ui-1-bold-add"
+					}
+					report task_subject_Report
+					{
+						icon = "travel-world"
+					}
+					report task_subject_by_assignment_type
+					{
+						icon = "tech-2-keyboard-wireless"
+					}
+				}
+				section Section_3
+				{
+					displayname = "Task Progress"
+					icon = "design-todo"
+					form  task_progress
+					{
+						icon = "ui-1-bold-add"
+					}
+					report task_progress_Report
+					{
+						icon = "loader-refresh"
+					}
+				}
+				section Section_4
+				{
+					displayname = "Tasks"
+					icon = "business-notes"
+					form  task
+					{
+						icon = "ui-1-bold-add"
+					}
+					report task_Report
+					{
+						icon = "travel-world"
+					}
+					report task_by_priority
+					{
+						icon = "business-agenda"
+					}
+					report Pending_Tasks
+					{
+						icon = "design-todo"
+					}
+					report All_Tasks
+					{
+						icon = "design-todo"
+					}
+				}
+				section Section_5
+				{
+					displayname = "Subjects"
+					icon = "education-microscope"
+					form  subject1
+					{
+						icon = "ui-1-bold-add"
+					}
+					report subject1_Report
+					{
+						icon = "travel-world"
+					}
+				}
+				section Section_6
+				{
+					displayname = "Student Profiles"
+					icon = "education-pencil-47"
+					form  student_profile
+					{
+						icon = "ui-1-bold-add"
+					}
+					report student_profile_Report
+					{
+						icon = "travel-world"
+					}
+					report student_profile_by_status
+					{
+						icon = "design-2-selection"
+					}
+				}
+				section ZC_App_Preferences
+				{
+					displayname = "App Preferences"
+					icon = "design-app"
+					systemcomponent
+					{
+						type = localization
+						displayname = "Language Selection"
+						icon = "education-language"
+					}
+					systemcomponent
+					{
+						type = connection
+						displayname = "Integrations"
+						icon = "tech-2-connection"
+					}
+				}
+				section ZC_Approvals
+				{
+					displayname = "Approvals"
+					icon = "ui-2-hourglass"
+					systemcomponent
+					{
+						type = approval
+						approval status = pending
+						displayname = "Pending Tasks"
+						icon = "ui-2-hourglass"
+					}
+					systemcomponent
+					{
+						type = approval
+						approval status = completed
+						displayname = "Completed Tasks"
+						icon = "design-todo"
+					}
+				}
+				section SharedAnalytics_Section
+				{
+					type = shared_user_report_section
+					displayname = "Reports"
+					icon = "business-chart-bar-33"
+				}
+				section Attendence
+				{
+					displayname = "Attendence"
+					icon = "tech-desktop"
+					form  Attendence
+					{
+						icon = "tech-desktop"
+					}
+					report Attendence_Report
+					{
+						icon = "tech-desktop"
+					}
+				}
+			}
+			preference
+			{
+				icon
+				{
+					style = solid
+					show = {space,section,component}
+				}
+			}
+		}
+		customize
+		{
+			font = "lato"
+			color options
+			{
+				color = "1"
+			}
+			logo
+			{
+				preference = "none"
+				placement = "left"
+			}
+		}
+	}
+	phone
+	{
+		forms
+		{
+			form Attendence
+			{
+				label placement = auto
+			}
+			form student_profile
+			{
+				label placement = auto
+			}
+			form subject1
+			{
+				label placement = auto
+			}
+			form task
+			{
+				label placement = auto
+			}
+			form task_progress
+			{
+				label placement = auto
+			}
+			form task_subject
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = twocolumn
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = chryslerpurple
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	tablet
+	{
+		forms
+		{
+			form Attendence
+			{
+				label placement = auto
+			}
+			form student_profile
+			{
+				label placement = auto
+			}
+			form subject1
+			{
+				label placement = auto
+			}
+			form task
+			{
+				label placement = auto
+			}
+			form task_progress
+			{
+				label placement = auto
+			}
+			form task_subject
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = slidingpane
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = rose
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	translation
+{
+{"Language_Settings":{"LANGAGUE_WITH_LOGIN":"browser"}}
+}
+}
